@@ -6,18 +6,34 @@ import Button from "./components/button/index"
 
 class App extends Component {
 
-  handleConfirm() {
+  state = {
+    counter: 0,
+    text: ''
+  }
+
+  handleConfirm = () => {
     alert("Confirmado!")
+    this.setState({
+      counter: this.state.counter+1
+    })
+  }
+
+  changeText = (text) => {
+    this.setState({
+      text: text.target.value
+    })
   }
   render () {
     return(
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p> Hello World! </p>
-          <Button onClick={this.handleConfirm} link="https://medium.com/@henrique.weiand/react-propriedades-children-plano-de-aula-iv-488beb6ba94a">
+          <h2> Hello World! {this.state.counter} </h2>
+          <Button onClick={this.handleConfirm}>
               <h4>Confirmar</h4>
           </Button>
+          <p> {this.state.text} </p>
+          <input onChange={this.changeText} value={this.state.text} />
         </header>
       </div>
     )
