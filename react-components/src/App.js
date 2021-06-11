@@ -6,13 +6,17 @@ import Button from "./components/button/index"
 
 class App extends Component {
 
-  state = {
-    counter: 0,
-    text: ''
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      counter: 0,
+      text: '',
+    }
+
   }
 
   handleConfirm = () => {
-    alert("Confirmado!")
     this.setState({
       counter: this.state.counter+1
     })
@@ -23,6 +27,8 @@ class App extends Component {
       text: text.target.value
     })
   }
+
+  //showState
   render () {
     return(
       <div className="App">
@@ -37,9 +43,9 @@ class App extends Component {
         </header>
       </div>
     )
-
-  }
     
+  }
+     
 }
 
 export default App;
